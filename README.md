@@ -88,6 +88,7 @@ Submit a pull request and feel free to ask questions if you have some.
  - Paying accepted submissions with custom ERC-20 Token
  - Allow editing of bounties and submissions
  - Killing bounties...and a whole lot more.
+ - Uploading sample images for the bounty 
 
 License
 ----
