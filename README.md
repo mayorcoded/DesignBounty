@@ -75,8 +75,8 @@ Kindly find other Readme files discussion the
 
 | Title | README |
 | ------ | ------ |
-| Design Patterns | [design_pattern_desicions.md](link) |
-| Avoiding Common Attacks | [avoiding_common_attacks.md](link)|
+| Design Patterns | [design_pattern_desicions.md](https://github.com/mayorcoded/DesignBounty/blob/master/design_pattern_desicions.md) |
+| Avoiding Common Attacks | [avoiding_common_attacks.md](https://github.com/mayorcoded/DesignBounty/blob/master/avoiding_common_attacks.md)|
 
 
 ### Development
