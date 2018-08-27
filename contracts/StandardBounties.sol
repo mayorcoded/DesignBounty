@@ -183,6 +183,7 @@ contract StandardBounties is Pausable {
       validateDeadline(_deadline)
       amountIsNotZero(_fulfillmentAmount)
       validateNotTooManyBounties
+      whenNotPaused
       returns (uint)
   {
       bounties.push(Bounty(_issuer, _deadline, _data, _fulfillmentAmount, _arbiter, _paysTokens, BountyStages.Draft, 0));
@@ -214,6 +215,7 @@ contract StandardBounties is Pausable {
   )
       public
       payable
+      whenNotPaused
       validateDeadline(_deadline)
       amountIsNotZero(_fulfillmentAmount)
       validateNotTooManyBounties
@@ -256,6 +258,7 @@ contract StandardBounties is Pausable {
   function contribute (uint _bountyId, uint _value)
       payable
       public
+      whenNotPaused
       validateBountyArrayIndex(_bountyId)
       isBeforeDeadline(_bountyId)
       isNotDead(_bountyId)
@@ -275,6 +278,7 @@ contract StandardBounties is Pausable {
   function activateBounty(uint _bountyId, uint _value)
       payable
       public
+      whenNotPaused
       validateBountyArrayIndex(_bountyId)
       isBeforeDeadline(_bountyId)
       onlyIssuer(_bountyId)
@@ -298,6 +302,7 @@ contract StandardBounties is Pausable {
   /// @param _data the data artifacts representing the fulfillment of the bounty
   function fulfillBounty(uint _bountyId, string _data)
       public
+      whenNotPaused
       validateBountyArrayIndex(_bountyId)
       validateNotTooManyFulfillments(_bountyId)
       isAtStage(_bountyId, BountyStages.Active)
@@ -315,6 +320,7 @@ contract StandardBounties is Pausable {
   /// @param _data the new data being submitted
   function updateFulfillment(uint _bountyId, uint _fulfillmentId, string _data)
       public
+      whenNotPaused
       validateBountyArrayIndex(_bountyId)
       validateFulfillmentArrayIndex(_bountyId, _fulfillmentId)
       onlyFulfiller(_bountyId, _fulfillmentId)
@@ -345,6 +351,7 @@ contract StandardBounties is Pausable {
   /// @param _fulfillmentId the index of the fulfillment being accepted
   function acceptFulfillment(uint _bountyId, uint _fulfillmentId)
       public
+      whenNotPaused
       validateBountyArrayIndex(_bountyId)
       validateFulfillmentArrayIndex(_bountyId, _fulfillmentId)
       onlyIssuerOrArbiter(_bountyId)
@@ -369,6 +376,7 @@ contract StandardBounties is Pausable {
   /// @param _bountyId the index of the bounty
   function killBounty(uint _bountyId)
       public
+      whenNotPaused
       validateBountyArrayIndex(_bountyId)
       onlyIssuer(_bountyId)
   {
@@ -396,6 +404,7 @@ contract StandardBounties is Pausable {
   /// @param _newDeadline the new deadline in timestamp format
   function extendDeadline(uint _bountyId, uint _newDeadline)
       public
+      whenNotPaused
       validateBountyArrayIndex(_bountyId)
       onlyIssuer(_bountyId)
       newDeadlineIsValid(_bountyId, _newDeadline)
@@ -411,6 +420,7 @@ contract StandardBounties is Pausable {
   /// @param _newIssuer the address of the new issuer
   function transferIssuer(uint _bountyId, address _newIssuer)
       public
+      whenNotPaused
       validateBountyArrayIndex(_bountyId)
       onlyIssuer(_bountyId)
   {
@@ -424,6 +434,7 @@ contract StandardBounties is Pausable {
   /// @param _newDeadline the new deadline for the bounty
   function changeBountyDeadline(uint _bountyId, uint _newDeadline)
       public
+      whenNotPaused
       validateBountyArrayIndex(_bountyId)
       onlyIssuer(_bountyId)
       validateDeadline(_newDeadline)
@@ -438,6 +449,7 @@ contract StandardBounties is Pausable {
   /// @param _newData the new requirements of the bounty
   function changeBountyData(uint _bountyId, string _newData)
       public
+      whenNotPaused
       validateBountyArrayIndex(_bountyId)
       onlyIssuer(_bountyId)
       isAtStage(_bountyId, BountyStages.Draft)
@@ -451,6 +463,7 @@ contract StandardBounties is Pausable {
   /// @param _newFulfillmentAmount the new fulfillment amount
   function changeBountyFulfillmentAmount(uint _bountyId, uint _newFulfillmentAmount)
       public
+      whenNotPaused
       validateBountyArrayIndex(_bountyId)
       onlyIssuer(_bountyId)
       isAtStage(_bountyId, BountyStages.Draft)
@@ -464,6 +477,7 @@ contract StandardBounties is Pausable {
   /// @param _newArbiter the new address of the arbiter
   function changeBountyArbiter(uint _bountyId, address _newArbiter)
       public
+      whenNotPaused
       validateBountyArrayIndex(_bountyId)
       onlyIssuer(_bountyId)
       isAtStage(_bountyId, BountyStages.Draft)
@@ -485,6 +499,7 @@ contract StandardBounties is Pausable {
   function increasePayout(uint _bountyId, uint _newFulfillmentAmount, uint _value)
       public
       payable
+      whenNotPaused
       validateBountyArrayIndex(_bountyId)
       onlyIssuer(_bountyId)
       newFulfillmentAmountIsIncrease(_bountyId, _newFulfillmentAmount)
@@ -503,6 +518,7 @@ contract StandardBounties is Pausable {
   function getFulfillment(uint _bountyId, uint _fulfillmentId)
       public
       constant
+      whenNotPaused
       validateBountyArrayIndex(_bountyId)
       validateFulfillmentArrayIndex(_bountyId, _fulfillmentId)
       returns (bool, address, string)
@@ -518,6 +534,7 @@ contract StandardBounties is Pausable {
   function getBounty(uint _bountyId)
       public
       constant
+      whenNotPaused
       validateBountyArrayIndex(_bountyId)
       returns (address, uint, uint, bool, uint, uint)
   {
@@ -535,6 +552,7 @@ contract StandardBounties is Pausable {
   function getBountyArbiter(uint _bountyId)
       public
       constant
+      whenNotPaused
       validateBountyArrayIndex(_bountyId)
       returns (address)
   {
@@ -547,6 +565,7 @@ contract StandardBounties is Pausable {
   function getBountyData(uint _bountyId)
       public
       constant
+      whenNotPaused
       validateBountyArrayIndex(_bountyId)
       returns (string)
   {
@@ -559,6 +578,7 @@ contract StandardBounties is Pausable {
   function getBountyToken(uint _bountyId)
       public
       constant
+      whenNotPaused
       validateBountyArrayIndex(_bountyId)
       returns (address)
   {
@@ -570,6 +590,7 @@ contract StandardBounties is Pausable {
   function getNumBounties()
       public
       constant
+      whenNotPaused
       returns (uint)
   {
       return bounties.length;
@@ -581,6 +602,7 @@ contract StandardBounties is Pausable {
   function getNumFulfillments(uint _bountyId)
       public
       constant
+      whenNotPaused
       validateBountyArrayIndex(_bountyId)
       returns (uint)
   {
@@ -594,6 +616,7 @@ contract StandardBounties is Pausable {
      */
     function setLatestIpfsHash(string _ipfsHash, uint _bountyId)
     public
+    whenNotPaused
     onlyIssuer(_bountyId)
     {
         latestIpfsHash = _ipfsHash;
@@ -607,6 +630,7 @@ contract StandardBounties is Pausable {
      */
     function setLatestFulfilmentHash(uint _bountyId, uint _fulfillmentId, string _ipfsHash)
     public
+    whenNotPaused
     issuerOrFulfiller(_bountyId, _fulfillmentId)
     {
         latestFulfilmentHash = _ipfsHash;
