@@ -47,7 +47,8 @@ $ npm run  start
 Navigate to the url specified at the terminal in yoru browser.
 
 # Using the Design Bounty Dapp
-
+```NOTE: For some reason, Metamask does not confirm transactions and this could lead to failed transactions. To avoid failed transaction on Metamask, uninstall and install your MetaMask extension (Chrome), and import an account from the seed only after running the migrations```
+  
   - To post a bounty
        -  click on the post a bounty button 
        -  on the pages that follow, enter in your bounty details
