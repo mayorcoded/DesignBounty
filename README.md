@@ -51,6 +51,7 @@ Navigate to the url specified at the terminal in yoru browser.
   
   - To post a bounty
        -  click on the post a bounty button 
+       -  choose pay with Ether (As pay with Token in still in development phase)
        -  on the pages that follow, enter in your bounty details
        -  go through the steps till you see a confirmation page
        -  submit your bounty and wait to confirm your transactions (2                        confirmations) with Metamask
