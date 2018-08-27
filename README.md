@@ -49,25 +49,25 @@ Navigate to the url specified at the terminal in yoru browser.
 # Using the Design Bounty Dapp
 
   - To post a bounty
-        -  click on the post a bounty button 
-        -  on the pages that follow, enter in your bounty details
-        -  go through the steps till you see a confirmation page
-        -  submit your bounty and wait to confirm your transactions (2                        confirmations) with Metamask
+       -  click on the post a bounty button 
+       -  on the pages that follow, enter in your bounty details
+       -  go through the steps till you see a confirmation page
+       -  submit your bounty and wait to confirm your transactions (2                        confirmations) with Metamask
   - To view your manage your bounties
-        - click on dahsboard > manage bounties
-        - also your submitted bounties would show up on *Bounties* page.
+       - click on dahsboard > manage bounties
+       - also your submitted bounties would show up on *Bounties* page.
   - To submit a design for a bounty
-        - sign into another account on Metamask, different than the account you               used to post bounties
-        - click on Bounties on the navigation bar
-        - click on bounty you want to add submissions for
-        - click on add submissions
-        - enter your submission details
-        - confirm your transactions (2 confirmations) with Metamask
+       - sign into another account on Metamask, different than the account you               used to post bounties
+       - click on Bounties on the navigation bar
+       - click on bounty you want to add submissions for
+       - click on add submissions
+       - enter your submission details
+       - confirm your transactions (2 confirmations) with Metamask
   - To manage submission
-        - sign into Metamask with the account with which you posted a bounty
-        - click on dashbaord, manage submissions
-        - in the list of submission for your bounties, click on the button to                 accept or reject a bounty.
-        - confirm your transactions (2 confirmations) with Metamask
+       - sign into Metamask with the account with which you posted a bounty
+       - click on dashbaord, manage submissions
+       - in the list of submission for your bounties, click on the button to                 accept or reject a bounty.
+       - confirm your transactions (2 confirmations) with Metamask
 
 ### Other ReadMe Documents 
 
